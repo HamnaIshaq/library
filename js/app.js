@@ -1,4 +1,24 @@
 
+// add new book to library btn
+const addNewBookToLibrary = document.querySelector('#addNewBookModal');
+// book modal id
+const bookModal = document.querySelector('#add-book-modal');
+// close modal button
+const closeBookModalBtn = document.querySelector('.close-modal');
+
+// add book btn in modal
+const addNewBookBtnFromModal = document.querySelector('.add-book-btn'); 
+
+// book information input field
+const bookInfoInputField = document.querySelectorAll('.form-input');
+
+// book information input fields
+const bookTitle = document.querySelector('#bookTitle');
+const bookAuthor = document.querySelector('#bookAuthor');
+const bookPages = document.querySelector('#bookPages');
+const bookImg = document.querySelector('#bookImg');
+const bookStatus = document.querySelector('#bookReadingStatus');
+
 // library array to store books
 let myLibrary = [
   {
@@ -105,3 +125,99 @@ function displayBookInfo () {
 //----------------------DISPLAY BOOKS IN LIBRARY -----------------------------//
 //----------------------------------------------------------------------------//
 
+//----------------------------------------------------------------------------//
+//----------------------DISPLAY BOOKS IN LIBRARY -----------------------------//
+//----------------------------------------------------------------------------//
+
+//----------------------------------------------------------------------------//
+//----------------------ADD BOOK IN LIBRARY ----------------------------------//
+//----------------------------------------------------------------------------//
+
+// add new book on button click
+addNewBookBtnFromModal.addEventListener('click', () => {
+  checkBookFieldsEntered();
+})
+
+// check if any required book information input field is empty
+function checkBookFieldsEntered() {
+  
+  if(bookTitle.value === '') { // book title is empty
+    bookTitle.style.border = '2px solid red';
+  }
+  else if(bookAuthor.value === '') { // book author is empty
+    bookAuthor.style.border = '2px solid red';
+  }
+  else if(bookPages.value === '') { // book page is empty
+    bookPages.style.border = '2px solid red';
+  }
+  else {
+    // add newly added book to library 
+    addBookToLibrary();
+  }
+}
+
+function addBookToLibrary() {
+  
+  // get current library length
+  const librarySize = myLibrary.length;
+  // variable to store book id
+  let bookId;
+  // if library is empty, make current book id 1, else get the last book id in current library array
+  librarySize === 0 ? bookId = 1 : bookId = myLibrary[librarySize - 1].id + 1;
+
+  // make a book object with entered book information
+  let newBook = new Book(bookId, bookTitle.value, bookAuthor.value, bookPages.value, bookImg.value, JSON.parse(bookStatus.value))
+
+  // add new book to library
+  myLibrary.push(newBook);
+
+  // display all books on page
+  displayBookInfo();
+  
+  hideModal(); // hide modal
+}
+
+// book constructor
+function Book(id, title, author, pages, img, readingStatus) {
+  this.id = id;
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+  this.img = img;
+  this.readingStatus = readingStatus;
+}
+
+// if input field is clicked and its border is red, then make its border light gray
+bookInfoInputField.forEach(input => {
+  input.addEventListener('change', (e) => {
+    if(e.target.style.border === '2px solid red') {
+      e.target.style.border = '1px solid rgb(157, 155, 155)';
+    }
+  })
+})
+
+// show modal
+addNewBookToLibrary.addEventListener('click', () => {
+  showModal();
+})
+
+// hide modal
+closeBookModalBtn.addEventListener('click', () => {
+  hideModal();
+})
+
+// show modal
+function showModal() {
+  bookModal.classList.remove('hide');
+  bookModal.classList.add('show');
+}
+
+// hide modal
+function hideModal() {
+  bookModal.classList.remove('show');
+  bookModal.classList.add('hide');
+}
+
+//--------------------------------------------------------------------------//
+//-------------------- ADD BOOK IN LIBRARY ---------------------------------//
+//--------------------------------------------------------------------------//
