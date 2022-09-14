@@ -11,7 +11,8 @@ body {
 }
 
 /* top heading and button styling */
-h1 {
+h1,
+h2 {
   margin: 0;
 }
 
@@ -69,3 +70,118 @@ h1 {
   object-fit: contain;
 }
 /* empty library */
+
+
+/* Modal Styling */
+
+.font-size-medium {
+  font-size: 1.5rem;
+}
+
+.btn-no-bg {
+  background: none;
+  color: #850E35;
+  padding: 0;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  z-index: 10;
+  background-color: rgb(255, 255, 255);
+  width: 50%;
+  max-width: 800px;
+  border-radius: 5px;
+  margin: 5% auto;
+}
+
+.modal-padding {
+  padding: 1em;
+}
+
+.required {
+  color: rgb(138, 17, 17);
+}
+
+.form-input {
+  display: block;
+  width: 100%;
+  padding: .45em .5em;
+  border-radius: 5px;
+  border: 1px solid rgb(157, 155, 155);
+  margin-top: 1em;
+  font-size: 14px;
+  font-family: Geneva, Verdana, sans-serif;
+}
+
+.form-input-container {
+  margin-bottom: 1em;
+  width: 100%;
+}
+
+.form-input-container+.form-input-container {
+  margin-left: 1em;
+}
+
+.additional-info-tooltip {
+  font-size: 14px;
+  color: lightslategray;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+}
+
+
+.additional-info-tooltip .tooltip-info {
+  display: none;
+  position: absolute;
+  top: -50px;
+  right: -90px;
+  width: 12rem;
+  background-color: lightgray;
+  border-radius: 4px;
+  color: #850E35;
+  text-align: center;
+  padding: 0.25em;
+}
+
+.additional-info-tooltip:focus .tooltip-info,
+.additional-info-tooltip:hover .tooltip-info {
+  display: inline-block;
+}
+
+.additional-info-tooltip:hover .tooltip-info::before {
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: 83px;
+  bottom: -10px;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 12px solid lightgray;
+}
+
+
+.text-align-right {
+  text-align: right;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+/* Modal Styling */
