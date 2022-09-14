@@ -43,7 +43,80 @@
       <!-- Empty Library -->
 
     </div>
+  
+    <!-- Modal to take user input for book -->
+    <div class="modal hide" id="add-book-modal">
+      <div class="modal-content">
+        <div class="modal-header modal-padding row">
+          <h2>Add Book</h2>
+          <button type="button" class="btn btn-no-bg close-modal">
+            <i class="fa-solid fa-xmark font-size-medium"></i>
+          </button>
+        </div>
     
+        <hr>
+    
+        <div class="modal-body modal-padding">
+    
+          <form class="form-book-info">
+            <div class="row">
+              <div class="form-input-container">
+                <label for="bookTitle">Title: <span class="required">*</span></label>
+                <input type="text" id="bookTitle" class="form-input" placeholder="Harry Potter and the Philosopher's Stone">
+              </div>
+    
+            </div>
+    
+            <div class="row">
+              <div class="form-input-container">
+                <label for="bookPages">Total Pages: <span class="required">*</span></label>
+                <input type="number" id="bookPages" class="form-input" placeholder="223">
+              </div>
+    
+              <div class="form-input-container">
+                <label for="bookAuthor">Author: <span class="required">*</span></label>
+                <input type="text" id="bookAuthor" class="form-input" placeholder="J. K. Rowling">
+              </div>
+    
+            </div>
+    
+            <div class="row">
+              <div class="form-input-container">
+                <label for="bookImg">Cover Image URL:
+                  <div class="additional-info-tooltip">
+                    <i class="fa fa-question-circle" aria-hidden="true"></i>
+                    <span class="tooltip-info"> Enter a cover image URL from the internet </span>
+                  </div>
+    
+                </label>
+                <input type="text" id="bookImg" class="form-input" placeholder="https://someimage">
+              </div>
+    
+              <div class="form-input-container">
+                <label for="bookReadingStatus">Reading Status: <span class="required">*</span></label>
+                <select type="select" id="bookReadingStatus" class="form-input">
+                  <option value="" disabled>Select Status</option>
+                  <option value="true">Read</option>
+                  <option value="false" selected>Un-Read</option>
+                </select>
+              </div>
+    
+            </div>
+    
+          </form>
+    
+        </div>
+    
+        <hr>
+    
+        <div class="modal-footer modal-padding text-align-right">
+          <button type="button" class="btn add-book-btn">Add</button>
+        </div>
+    
+      </div>
+    </div>
+    <!-- Modal to take user input for book -->
+
   </main>
 </body>
 </html>
