@@ -212,3 +212,71 @@ function hideModal() {
 //--------------------------------------------------------------------------//
 //-------------------- ADD BOOK IN LIBRARY ---------------------------------//
 //--------------------------------------------------------------------------//
+
+//--------------------------------------------------------------------------//
+//--------- DELETE BOOK FROM LIBRARY ---------------------------------------//
+//--------------------------------------------------------------------------//
+
+// delete book / update reading status of book from library
+document.querySelector('.book-container').addEventListener('click', (e) => {
+  
+  // delete button is clicked, delete clicked book from library
+  if(e.target.classList.contains('btn-delete-book')) {
+    deleteBookFromLibrary(e);
+  }
+  // status button is clicked, update reading status
+  else if(e.target.classList.contains('btn-read-status')) {
+    updateBookReadingStatus(e);
+  }
+})
+
+// delete book from library
+deleteBookFromLibrary = (e) => {
+  // variable to store current book card
+  let currentBookCard;
+  // variable to store current book card's id
+  let bookId;
+
+  // if user clicks button
+  if(e.target.tagName === 'BUTTON') {
+    // get current book card
+    currentBookCard = e.target.parentElement.parentElement;
+    // get current book card's id
+    bookId = parseInt(e.target.parentElement.parentElement.getAttribute('data-id'));
+  }
+  // if user clicks the trash icon
+  else if(e.target.tagName === 'I') {
+    // get current book card
+    currentBookCard = e.target.parentElement.parentElement.parentElement;
+    // get current book card's id
+    bookId = parseInt(e.target.parentElement.parentElement.parentElement.getAttribute('data-id'));
+  } 
+  
+  // make a duplicate of the library array
+  let duplicateLibrary = myLibrary;
+
+  // empty out the library array
+  myLibrary = [];
+
+  // loop through duplicate library and push only those books that are not the clicked one
+  duplicateLibrary.forEach(book => {
+    if(bookId !== book.id) {
+      myLibrary.push(book)
+    }
+  })
+
+  // no book in library empty message
+  const noBookMessage = document.querySelector('.no-data-found-container');
+  
+  if(myLibrary.length === 0) {
+    noBookMessage.classList.remove('hide');
+    noBookMessage.classList.add('show');
+  }
+
+  // delete book from DOM
+  currentBookCard.remove();
+}
+
+//--------------------------------------------------------------------------//
+//--------- DELETE BOOK FROM LIBRARY ---------------------------------------//
+//--------------------------------------------------------------------------//
