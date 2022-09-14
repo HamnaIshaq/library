@@ -280,3 +280,65 @@ deleteBookFromLibrary = (e) => {
 //--------------------------------------------------------------------------//
 //--------- DELETE BOOK FROM LIBRARY ---------------------------------------//
 //--------------------------------------------------------------------------//
+
+//--------------------------------------------------------------------------//
+//--------- UPDATE READING STATUS OF BOOK ----------------------------------//
+//--------------------------------------------------------------------------//
+
+// update book reading status
+updateBookReadingStatus = (e) => {
+  // variable to store clicked book status content
+  let currentBookStatusContent;
+
+  // if clicked element is button, get its child which contains book id
+  if(e.target.tagName === 'BUTTON') {
+    currentBookStatusContent = e.target.children[0];
+  }
+  // if clicked element is span, get book id from it
+  else if(e.target.tagName === 'SPAN') {
+    currentBookStatusContent = e.target;
+  }
+  // if clicked element is circle icon, get its parent span element which contains book id
+  else if(e.target.tagName === 'I') {
+    currentBookStatusContent = e.target.parentElement;
+  }
+  
+  // get the book id of the clicked book
+  const bookId = parseInt(currentBookStatusContent.getAttribute('data-id'));
+  
+  // loop through the library array, if clicked book is found; change its reading status to opposite of its current value
+  myLibrary.forEach(book => {
+    if(book.id === bookId) {
+      book.readingStatus = !book.readingStatus;
+      // change book status on DOM
+      changeDOMContentOnBookStatus(currentBookStatusContent, book.readingStatus, book.id);
+    }
+  })
+}
+
+// change book status on DOM
+function changeDOMContentOnBookStatus(currentBookStatusContent, updatedBookStatus, bookId) {
+  // if book status is read, change status content to unread
+  if(updatedBookStatus === true) {
+    currentBookStatusContent.innerHTML = `
+      <span class="status-read btn-read-status" data-id="${bookId}">
+        <i class="fa-solid fa-circle btn-read-status"></i>
+        Read
+      </span>
+    `;
+  }
+  // if book status is unread, change status content to read
+  else if(updatedBookStatus === false) {
+    currentBookStatusContent.innerHTML = `
+      <span class="status-not-read btn-read-status" data-id="${bookId}">
+        <i class="fa-regular fa-circle btn-read-status"></i>
+        Un-Read
+      </span>
+    `;
+  }
+  
+}
+
+//--------------------------------------------------------------------------//
+//--------- UPDATE READING STATUS OF BOOK ----------------------------------//
+//--------------------------------------------------------------------------//
