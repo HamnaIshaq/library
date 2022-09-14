@@ -1,6 +1,15 @@
 
 // library array to store books
-let myLibrary = [];
+let myLibrary = [
+  {
+    id: 1,
+    title: 'Book Title',
+    author: 'Author',
+    pages: 223,
+    img: 'https://api.time.com/wp-content/uploads/2014/09/01-best-childrens-books-where-the-wild-things-are1.jpg?quality=85&w=624',
+    readingStatus: false
+  }
+];
 
 //----------------------------------------------------------------------------//
 //----------------------DISPLAY BOOKS IN LIBRARY -----------------------------//
