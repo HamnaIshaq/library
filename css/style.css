@@ -48,8 +48,7 @@ h2 {
 
 .btn:hover,
 .btn:focus {
-  background-color: #FFC4C4;
-  color: #850E35;
+  opacity: 0.8;
 }
 
 /* top heading and button styling */
