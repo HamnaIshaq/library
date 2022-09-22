@@ -156,8 +156,13 @@ function addBookToLibrary() {
   // if library is empty, make current book id 1, else get the last book id in current library array
   librarySize === 0 ? bookId = 1 : bookId = myLibrary[librarySize - 1].id + 1;
 
+  let bookImage = bookImg.value;
+  if(bookImage === '') {
+    bookImage = 'https://via.placeholder.com/250x250.png?text=No+Cover+Image'
+  }
+
   // make a book object with entered book information
-  let newBook = new Book(bookId, bookTitle.value, bookAuthor.value, bookPages.value, bookImg.value, JSON.parse(bookStatus.value))
+  let newBook = new Book(bookId, bookTitle.value, bookAuthor.value, bookPages.value, bookImage, JSON.parse(bookStatus.value))
 
   // add new book to library
   myLibrary.push(newBook);
