@@ -5,6 +5,7 @@ This project is from [the Odin Project](https://www.theodinproject.com/lessons/n
 ## Table of contents
 - [Overview](#overview)
   - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
 -[My process](#my-process)
   - [What I Learned](#what-i-learned)
   - [Technologies Used](#technologies-used)
@@ -19,6 +20,9 @@ This application should have the following functionalities:
 - Display the books information (i.e. title, author, cover image, total pages and reading status) in a table or card format
 - Allow user to change reading status to read or un-read 
 - Allow user to delete books 
+
+## Screenshot
+![](./images/solution-screenshot-library.JPG)
 
 ## My process
 On page load, the library is empty and, as a result, no book is shown. User can add a new book by using the 'Add New Book' button. A modal is opened on clicking this button which contains a form to fill book information. The user can then add the book information; title, author, total pages, cover image URL and current reading status, in the modal form. 
