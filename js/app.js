@@ -163,12 +163,14 @@ function addBookToLibrary() {
 
   // make a book object with entered book information
   let newBook = new Book(bookId, bookTitle.value, bookAuthor.value, bookPages.value, bookImage, JSON.parse(bookStatus.value))
-
+  console.log(newBook)
   // add new book to library
   myLibrary.push(newBook);
 
   // display all books on page
   displayBookInfo();
+
+  resetModalInputValues();
   
   hideModal(); // hide modal
 }
@@ -212,6 +214,15 @@ function showModal() {
 function hideModal() {
   bookModal.classList.remove('show');
   bookModal.classList.add('hide');
+}
+
+// reset modal form input values
+function resetModalInputValues() {
+  bookTitle.value = '';
+  bookAuthor.value = '';
+  bookPages.value = '';
+  bookImg.value = ''; 
+  bookStatus.value = false;
 }
 
 //--------------------------------------------------------------------------//
