@@ -6,6 +6,7 @@ This project is from [the Odin Project](https://www.theodinproject.com/lessons/n
 - [Overview](#overview)
   - [The challenge](#the-challenge)
   - [Screenshot](#screenshot)
+  - [Live URL](#live-url)
 -[My process](#my-process)
   - [What I Learned](#what-i-learned)
   - [Technologies Used](#technologies-used)
@@ -23,6 +24,9 @@ This application should have the following functionalities:
 
 ## Screenshot
 ![](./images/solution-screenshot-library.JPG)
+
+## Live URL
+- Live Site URL: [Live Link](https://hamnaishaq.github.io/library/)
 
 ## My process
 On page load, the library is empty and, as a result, no book is shown. User can add a new book by using the 'Add New Book' button. A modal is opened on clicking this button which contains a form to fill book information. The user can then add the book information; title, author, total pages, cover image URL and current reading status, in the modal form. 
